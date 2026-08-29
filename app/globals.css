@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+:root {
+  --scalorant-blue: #afdde5;
+  --scalorant-black: #050505;
+  --scalorant-muted: rgba(5, 5, 5, 0.58);
+  --scalorant-line: rgba(5, 5, 5, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--scalorant-blue);
+  color: var(--scalorant-black);
+  font-family: var(--font-sans), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--scalorant-black);
+  color: var(--scalorant-blue);
+}
+
+/* Editorial display typography */
+
+.display-font {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+}
+
+/* Navigation */
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: var(--scalorant-black);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 300ms ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Editorial links */
+
+.editorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--scalorant-black);
+  padding-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition:
+    gap 300ms ease,
+    opacity 300ms ease;
+}
+
+.editorial-link:hover {
+  gap: 20px;
+}
+
+/* Project rows */
+
+.project-row {
+  transition:
+    background-color 300ms ease,
+    padding-left 300ms ease,
+    padding-right 300ms ease;
+}
+
+.project-row:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Services */
+
+.service-item {
+  transition:
+    padding-left 350ms ease,
+    background-color 350ms ease;
+}
+
+.service-item:hover {
+  padding-left: 12px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Page reveal */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: scalorant-reveal 900ms cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+.reveal-delay-1 {
+  animation-delay: 120ms;
+}
+
+.reveal-delay-2 {
+  animation-delay: 240ms;
+}
+
+.reveal-delay-3 {
+  animation-delay: 360ms;
+}
+
+@keyframes scalorant-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
