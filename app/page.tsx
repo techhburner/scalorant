@@ -682,7 +682,7 @@ export default function Home() {
 
              <div className="mb-6 overflow-hidden border border-black/20">
   <img
-    src="/images/prakash.jpg"
+    src="/scalorant/images/prakash.jpg"
     alt="Prakash Burra"
     className="block h-auto w-full"
   />
@@ -702,7 +702,7 @@ export default function Home() {
 
               <div className="mb-6 overflow-hidden border border-black/20">
   <img
-    src="/images/pratyush.png"
+    src="/scalorant/images/pratyush.png"
     alt="W Pratyush"
     className="block h-auto w-full"
   />
